@@ -128,3 +128,56 @@ body,
     max-width: 100%;
   }
 }
+
+
+/* Deterministic phone header: controls are pinned to the viewport edges,
+   so the brand can never push the basket or menu off-screen. */
+@media (max-width: 768px) {
+  .header-top__inner {
+    position: relative;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding-left: 50px;
+    padding-right: 80px;
+    overflow: hidden !important;
+  }
+
+  .header-search {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 42px;
+    transform: translateY(-50%);
+  }
+
+  .header-logo {
+    flex: 0 1 auto;
+    width: auto;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .header-logo a {
+    width: auto;
+    max-width: 100%;
+  }
+
+  .header-logo__text {
+    width: auto;
+    max-width: 100%;
+    font-size: 20px !important;
+    letter-spacing: 0.5px !important;
+    line-height: 1;
+  }
+
+  .header-actions {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 72px;
+    max-width: 72px;
+    transform: translateY(-50%);
+  }
+}
