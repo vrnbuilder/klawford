@@ -3,9 +3,11 @@
    horizontal scrolling inside the hero category strip. */
 
 html,
-body {
+body,
+.main-content {
+  width: 100%;
   max-width: 100%;
-  overflow-x: clip;
+  overflow-x: hidden !important;
 }
 
 @media (max-width: 768px) {
@@ -15,7 +17,7 @@ body {
   }
 
   .header-top__inner {
-    grid-template-columns: 42px minmax(0, 1fr) 58px !important;
+    grid-template-columns: 42px minmax(0, 1fr) 72px !important;
     gap: 8px !important;
     width: 100%;
     min-width: 0;
@@ -51,8 +53,8 @@ body {
     max-width: 100%;
     overflow: hidden;
     white-space: nowrap;
-    font-size: clamp(25px, 8vw, 34px) !important;
-    letter-spacing: clamp(2px, 1vw, 4px) !important;
+    font-size: clamp(21px, 6.5vw, 25px) !important;
+    letter-spacing: clamp(1px, 0.5vw, 2px) !important;
     line-height: 1.1;
   }
 
@@ -62,8 +64,13 @@ body {
   }
 
   .header-actions {
+    display: flex !important;
+    width: 72px;
+    max-width: 72px;
+    overflow: visible;
+    visibility: visible !important;
     justify-content: flex-end !important;
-    gap: 9px !important;
+    gap: 8px !important;
     padding-right: 0 !important;
   }
 
@@ -72,8 +79,8 @@ body {
   }
 
   .header-action__icon-wrap svg {
-    width: 26px;
-    height: 26px;
+    width: 24px;
+    height: 24px;
   }
 
   .header-action__label {
@@ -81,7 +88,8 @@ body {
   }
 
   .header-mobile-btn {
-    width: 22px;
+    display: flex !important;
+    width: 20px;
     flex-shrink: 0;
   }
 
