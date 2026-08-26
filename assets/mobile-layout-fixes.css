@@ -1,0 +1,104 @@
+/* Klawford mobile layout corrections
+   Keeps the storefront within the viewport while preserving intentional
+   horizontal scrolling inside the hero category strip. */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+@media (max-width: 768px) {
+  .header-top .container {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .header-top__inner {
+    grid-template-columns: 42px minmax(0, 1fr) 58px !important;
+    gap: 8px !important;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .header-search,
+  .header-logo,
+  .header-actions {
+    min-width: 0;
+  }
+
+  .header-search-form {
+    width: 42px !important;
+    max-width: 42px !important;
+    padding: 0 12px !important;
+  }
+
+  .header-search-input {
+    display: none !important;
+  }
+
+  .header-logo {
+    overflow: hidden;
+  }
+
+  .header-logo a {
+    display: block;
+    max-width: 100%;
+  }
+
+  .header-logo__text {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: clamp(25px, 8vw, 34px) !important;
+    letter-spacing: clamp(2px, 1vw, 4px) !important;
+    line-height: 1.1;
+  }
+
+  .header-logo__img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .header-actions {
+    justify-content: flex-end !important;
+    gap: 9px !important;
+    padding-right: 0 !important;
+  }
+
+  .header-action {
+    flex-shrink: 0;
+  }
+
+  .header-action__icon-wrap svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .header-action__label {
+    display: none !important;
+  }
+
+  .header-mobile-btn {
+    width: 22px;
+    flex-shrink: 0;
+  }
+
+  .hero-banner__cats-bar {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .hero-banner__cats-bar .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .hero-cats-row {
+    width: 100%;
+    max-width: 100%;
+  }
+}
