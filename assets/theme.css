@@ -4316,3 +4316,17 @@ body,
     transform: translateY(-50%);
   }
 }
+
+/* Mobile navigation alignment */
+@media (max-width: 768px) {
+  .mobile-menu__link {
+    width: 100%;
+    text-align: left;
+  }
+
+  .mobile-menu__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
