@@ -188,13 +188,10 @@
     const items = [bedItem];
 
     if (headboard.includes('54" Floor Standing Headboard')) {
-      const addonRes = await fetch('/products/54-floor-standing-headboard-upgrade.js');
-      if (!addonRes.ok) throw new Error('Headboard upgrade is unavailable');
-      const addonProduct = await addonRes.json();
-      const addonVariant = addonProduct.variants?.find(v => v.available) || addonProduct.variants?.[0];
-      if (!addonVariant?.id) throw new Error('Headboard upgrade is unavailable');
+      const addonVariantId = document.getElementById('headboard-addon-variant-id')?.value;
+      if (!addonVariantId) throw new Error('Headboard upgrade is unavailable');
       items.push({
-        id: Number(addonVariant.id),
+        id: Number(addonVariantId),
         quantity,
         properties: { '_Attached to bed variant': String(variantId) }
       });
@@ -214,6 +211,7 @@
       openCart();
     } catch (err) {
       console.warn('Add to cart failed', err);
+      alert(err.message || 'Could not add this configuration to the basket.');
       throw err;
     }
   }
