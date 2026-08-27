@@ -29,8 +29,10 @@
     {%- if search.performed and search.results_count > 0 -%}
       <div class="collection-grid">
         {%- for item in search.results -%}
-          {%- if item.object_type == 'product' and item.tags contains 'hidden-addon' == false -%}
-            {%- render 'product-card', product: item -%}
+          {%- if item.object_type == 'product' -%}
+            {%- unless item.tags contains 'hidden-addon' -%}
+              {%- render 'product-card', product: item -%}
+            {%- endunless -%}
           {%- endif -%}
         {%- endfor -%}
       </div>
