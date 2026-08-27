@@ -4355,3 +4355,27 @@ body,
     max-height: none !important;
   }
 }
+
+
+/* Keep product option summaries readable on narrow screens. */
+@media (max-width: 768px) {
+  .variant-options-bar {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+
+  .variant-option-tab {
+    min-width: 0 !important;
+    padding: 12px 4px !important;
+  }
+
+  .variant-option-tab__value {
+    width: 100% !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    overflow-wrap: anywhere;
+    line-height: 1.2;
+    font-size: 10px;
+  }
+}
