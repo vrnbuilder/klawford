@@ -4330,3 +4330,28 @@ body,
     justify-content: space-between;
   }
 }
+
+
+/* Product page mobile grid correction
+   A later desktop gallery rule forces a 650px + 1fr grid. Restore the
+   intended single-column product flow on phones and tablets. */
+@media (max-width: 1024px) {
+  .product-main__grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 32px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .product-gallery,
+  .product-info {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .product-gallery__main {
+    max-height: none !important;
+  }
+}
