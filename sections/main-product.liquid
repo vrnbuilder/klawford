@@ -635,6 +635,66 @@
     });
   });
 
+  // Mobile inline colour preview: confirms the selected finish without
+  // forcing the shopper to return to the full gallery above.
+  function updateInlineColourPreview(colourVal, visibleThumbs, activeSrc) {
+    if (window.innerWidth > 768) return;
+    var colourPanel = document.getElementById('vpanel-colour') || document.getElementById('vpanel-color');
+    if (!colourPanel || !visibleThumbs || !visibleThumbs.length) return;
+
+    var preview = document.getElementById('mobile-colour-preview');
+    if (!preview) {
+      preview = document.createElement('div');
+      preview.id = 'mobile-colour-preview';
+      preview.className = 'mobile-colour-preview';
+      preview.innerHTML =
+        '<p class="mobile-colour-preview__title"><span id="mobile-colour-name"></span> selected</p>' +
+        '<img id="mobile-colour-main" class="mobile-colour-preview__main" alt="Selected bed colour preview" width="600" height="450">' +
+        '<button id="mobile-colour-toggle" class="mobile-colour-preview__toggle" type="button" aria-expanded="false"></button>' +
+        '<div id="mobile-colour-images" class="mobile-colour-preview__images" hidden></div>';
+      colourPanel.appendChild(preview);
+
+      preview.querySelector('#mobile-colour-toggle').addEventListener('click', function(){
+        var images = preview.querySelector('#mobile-colour-images');
+        var expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        images.hidden = expanded;
+        this.textContent = (expanded ? 'View all ' : 'Hide ') +
+          (preview.getAttribute('data-colour') || '') + ' images';
+      });
+    }
+
+    var displayColour = colourVal || 'Selected colour';
+    preview.setAttribute('data-colour', displayColour);
+    preview.querySelector('#mobile-colour-name').textContent = displayColour;
+    preview.querySelector('#mobile-colour-toggle').textContent = 'View all ' + displayColour + ' images';
+
+    var main = preview.querySelector('#mobile-colour-main');
+    var firstSrc = activeSrc || visibleThumbs[0].getAttribute('data-src');
+    if (firstSrc) {
+      main.src = firstSrc;
+      main.alt = displayColour + ' bed';
+    }
+
+    var images = preview.querySelector('#mobile-colour-images');
+    images.innerHTML = '';
+    visibleThumbs.forEach(function(thumb, index){
+      var src = thumb.getAttribute('data-src');
+      if (!src) return;
+      var button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'mobile-colour-preview__thumb' + (src === firstSrc ? ' active' : '');
+      button.setAttribute('aria-label', 'View ' + displayColour + ' image ' + (index + 1));
+      button.innerHTML = '<img src="' + src + '" alt="" loading="lazy">';
+      button.addEventListener('click', function(){
+        main.src = src;
+        images.querySelectorAll('.mobile-colour-preview__thumb').forEach(function(t){ t.classList.remove('active'); });
+        button.classList.add('active');
+      });
+      images.appendChild(button);
+    });
+  }
+
   // Filter thumbnails by colour; show only images tagged for this colour
   function filterThumbs(colourVal, preferredSrc) {
     var mainImg = document.getElementById('product-main-img');
@@ -681,6 +741,7 @@
         mainImg.src = src;
       }
     }
+    updateInlineColourPreview(colourVal, visible, toActivate ? (preferredSrc || toActivate.getAttribute('data-src')) : null);
   }
 
   // Headboard card selection (line item property)
