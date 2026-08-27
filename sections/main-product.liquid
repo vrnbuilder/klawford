@@ -393,7 +393,7 @@
             <input type="hidden" name="properties[Headboard]" id="headboard-property" value="No Headboard">
             <div class="variant-panel hidden" id="vpanel-headboard">
               <div class="variant-grid" style="grid-template-columns: repeat(3, 1fr);">
-                <button type="button" class="variant-card active" aria-pressed="true" data-hb-value="No Headboard">
+                <button type="button" class="variant-card active" aria-pressed="true" data-hb-value="No Headboard" data-hb-price="0">
                   <div class="variant-card__check">✓</div>
                   <div class="variant-card__img">
                     <div class="variant-card__bed-icon">
@@ -412,7 +412,7 @@
                   </div>
                   <span class="variant-card__name">No Headboard</span>
                 </button>
-                <button type="button" class="variant-card" aria-pressed="false" data-hb-value='FREE 26" Headboard'>
+                <button type="button" class="variant-card" aria-pressed="false" data-hb-value='FREE 26" Headboard' data-hb-price="0">
                   <div class="variant-card__check">✓</div>
                   <div class="variant-card__img">
                     <div class="variant-card__bed-icon">
@@ -432,7 +432,7 @@
                   </div>
                   <span class="variant-card__name">FREE 26&quot; Headboard</span>
                 </button>
-                <button type="button" class="variant-card" aria-pressed="false" data-hb-value='54" Floor Standing Headboard'>
+                <button type="button" class="variant-card" aria-pressed="false" data-hb-value='54" Floor Standing Headboard' data-hb-price="1500">
                   <div class="variant-card__check">✓</div>
                   <div class="variant-card__img">
                     <div class="variant-card__bed-icon">
@@ -580,6 +580,7 @@
       "{{ option.selected_value | escape }}"{% unless forloop.last %},{% endunless %}
     {%- endfor -%}
   ];
+  var headboardSurchargeCents = 0;
 
   function findVariant(){
     return variants.find(function(v){
@@ -594,13 +595,15 @@
     var pill = document.getElementById('product-pct-pill');
     var btn = document.querySelector('[data-add-to-cart]');
     var subtitle = document.getElementById('product-variant-subtitle');
-    if(price) price.textContent = formatMoney(variant.price);
+    var effectivePrice = variant.price + headboardSurchargeCents;
+    var effectiveCompare = variant.compare_at_price ? variant.compare_at_price + headboardSurchargeCents : 0;
+    if(price) price.textContent = formatMoney(effectivePrice);
     if(compare){
-      if(variant.compare_at_price > variant.price){
-        compare.textContent = formatMoney(variant.compare_at_price);
+      if(effectiveCompare > effectivePrice){
+        compare.textContent = formatMoney(effectiveCompare);
         compare.style.display = '';
         if(pill){
-          var pct = Math.round((variant.compare_at_price - variant.price) / variant.compare_at_price * 100);
+          var pct = Math.round((effectiveCompare - effectivePrice) / effectiveCompare * 100);
           pill.textContent = pct + '% OFF';
           pill.style.display = '';
         }
@@ -754,6 +757,8 @@
       var val = card.getAttribute('data-hb-value');
       var inp = document.getElementById('headboard-property');
       if (inp) inp.value = val;
+      headboardSurchargeCents = parseInt(card.getAttribute('data-hb-price') || '0', 10);
+      updatePrice(findVariant());
       var tabVal = document.getElementById('opt-tab-headboard');
       if (tabVal) tabVal.textContent = val;
     });
@@ -964,13 +969,17 @@
       confirmBtn.disabled   = true;
       confirmBtn.textContent = 'Adding…';
 
-      var items = [{ id: bedVariant.id, quantity: 1 }];
-      if (mv) items.push({ id: mv.id, quantity: 1 });
+      var itemsPromise = window.KlawfordTheme && window.KlawfordTheme.buildCartItems
+        ? window.KlawfordTheme.buildCartItems(bedVariant.id, 1)
+        : Promise.resolve([{ id: bedVariant.id, quantity: 1 }]);
 
-      fetch('/cart/add.js', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ items: items })
+      itemsPromise.then(function(items){
+        if (mv) items.push({ id: mv.id, quantity: 1 });
+        return fetch('/cart/add.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ items: items })
+        });
       })
       .then(function(r){ return r.json(); })
       .then(function(data){
