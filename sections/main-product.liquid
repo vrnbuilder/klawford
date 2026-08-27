@@ -391,14 +391,12 @@
 
             {%- comment -%} Headboard panel — 3 hardcoded options stored as line item property {%- endcomment -%}
             {%- assign headboard_upgrade_product = all_products['54-floor-standing-headboard-upgrade'] -%}
-            {%- if headboard_upgrade_product == blank -%}
-              {%- for addon_candidate in collections.all.products -%}
-                {%- if addon_candidate.title == '54" Floor Standing Headboard Upgrade' -%}
-                  {%- assign headboard_upgrade_product = addon_candidate -%}
-                  {%- break -%}
-                {%- endif -%}
-              {%- endfor -%}
-            {%- endif -%}
+            {%- for addon_candidate in collections.all.products -%}
+              {%- if addon_candidate.title == '54" Floor Standing Headboard Upgrade' -%}
+                {%- assign headboard_upgrade_product = addon_candidate -%}
+                {%- break -%}
+              {%- endif -%}
+            {%- endfor -%}
             <input type="hidden" name="properties[Headboard]" id="headboard-property" value="No Headboard">
             <input type="hidden" id="headboard-addon-variant-id" value="{{ headboard_upgrade_product.selected_or_first_available_variant.id }}">
             <div class="variant-panel hidden" id="vpanel-headboard">
