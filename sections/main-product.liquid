@@ -703,6 +703,8 @@
   document.querySelectorAll('.variant-card').forEach(function(card){
     card.addEventListener('click', function(){
       if (card.hasAttribute('data-hb-value')) return; // headboard handled above
+      // Preserve the shopper's position when gallery thumbnails above change.
+      var variantScrollTop = window.pageYOffset || document.documentElement.scrollTop || 0;
       var idx = parseInt(card.getAttribute('data-option-index'));
       var val = card.getAttribute('data-value');
       var grid = card.closest('.variant-grid');
@@ -727,6 +729,11 @@
           mainImg.removeAttribute('sizes');
           mainImg.src = variant.featured_image.src;
         }
+      }
+      if (window.innerWidth <= 1024) {
+        requestAnimationFrame(function(){
+          requestAnimationFrame(function(){ window.scrollTo(0, variantScrollTop); });
+        });
       }
     });
   });
