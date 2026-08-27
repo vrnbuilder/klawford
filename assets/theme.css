@@ -4447,3 +4447,9 @@ body,
     object-fit: cover;
   }
 }
+
+
+/* Cart drawer stacking fix: keep product-page controls behind the open drawer */
+.cart-overlay { z-index: 2147483645; }
+.cart-drawer { z-index: 2147483646; isolation: isolate; }
+.cart-drawer__foot { position: relative; z-index: 2; }
