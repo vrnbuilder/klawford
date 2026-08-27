@@ -180,22 +180,46 @@
     }
   }
 
+  async function buildCartItems(variantId, quantity = 1) {
+    const headboardInput = document.getElementById('headboard-property');
+    const headboard = headboardInput?.value || '';
+    const bedItem = { id: Number(variantId), quantity };
+    if (headboard) bedItem.properties = { Headboard: headboard };
+    const items = [bedItem];
+
+    if (headboard.includes('54" Floor Standing Headboard')) {
+      const addonRes = await fetch('/products/54-floor-standing-headboard-upgrade.js');
+      if (!addonRes.ok) throw new Error('Headboard upgrade is unavailable');
+      const addonProduct = await addonRes.json();
+      const addonVariant = addonProduct.variants?.find(v => v.available) || addonProduct.variants?.[0];
+      if (!addonVariant?.id) throw new Error('Headboard upgrade is unavailable');
+      items.push({
+        id: Number(addonVariant.id),
+        quantity,
+        properties: { '_Attached to bed variant': String(variantId) }
+      });
+    }
+    return items;
+  }
+
   async function addToCart(variantId, quantity = 1) {
     try {
+      const items = await buildCartItems(variantId, quantity);
       const res  = await fetch('/cart/add.js', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id: variantId, quantity }),
+        body: JSON.stringify({ items }),
       });
       if (!res.ok) throw new Error('Add to cart failed');
       openCart();
     } catch (err) {
       console.warn('Add to cart failed', err);
+      throw err;
     }
   }
 
   // Expose globally so section scripts can call it
-  window.KlawfordTheme = { addToCart, openCart, closeCart, fetchCart };
+  window.KlawfordTheme = { addToCart, buildCartItems, openCart, closeCart, fetchCart };
 
   /* ---- Add-to-cart buttons on product page ---------------- */
   document.addEventListener('click', e => {
