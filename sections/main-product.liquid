@@ -390,7 +390,9 @@
             {%- endfor -%}
 
             {%- comment -%} Headboard panel — 3 hardcoded options stored as line item property {%- endcomment -%}
+            {%- assign headboard_upgrade_product = all_products['54-floor-standing-headboard-upgrade'] -%}
             <input type="hidden" name="properties[Headboard]" id="headboard-property" value="No Headboard">
+            <input type="hidden" id="headboard-addon-variant-id" value="{{ headboard_upgrade_product.selected_or_first_available_variant.id }}">
             <div class="variant-panel hidden" id="vpanel-headboard">
               <div class="variant-grid" style="grid-template-columns: repeat(3, 1fr);">
                 <button type="button" class="variant-card active" aria-pressed="true" data-hb-value="No Headboard" data-hb-price="0">
