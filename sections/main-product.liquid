@@ -398,7 +398,7 @@
               {%- endif -%}
             {%- endfor -%}
             <input type="hidden" name="properties[Headboard]" id="headboard-property" value="No Headboard">
-            <input type="hidden" id="headboard-addon-variant-id" value="{{ headboard_upgrade_product.selected_or_first_available_variant.id }}" data-product-titles="{{ collections.all.products | map: 'title' | join: '||' | escape }}">
+            <input type="hidden" id="headboard-addon-variant-id" value="{{ headboard_upgrade_product.selected_or_first_available_variant.id }}">
             <div class="variant-panel hidden" id="vpanel-headboard">
               <div class="variant-grid" style="grid-template-columns: repeat(3, 1fr);">
                 <button type="button" class="variant-card active" aria-pressed="true" data-hb-value="No Headboard" data-hb-price="0">
