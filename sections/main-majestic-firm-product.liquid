@@ -97,18 +97,6 @@
 
     {%- comment -%} ── PRODUCT INFO ──────────────────────────────────────── {%- endcomment -%}
     <div class="klm-info">
-
-      <div class="klm-info__rating">
-        <div class="klm-stars" aria-label="4.8 out of 5">
-          {%- for i in (1..5) -%}
-            <svg class="klm-star" viewBox="0 0 14 13" fill="currentColor" aria-hidden="true"><path d="M7 .5l1.76 3.56L13 4.75l-3 2.92.71 4.12L7 9.77l-3.71 2.02.71-4.12L1 4.75l4.24-.69L7 .5z"/></svg>
-          {%- endfor -%}
-        </div>
-        <a href="#klm-faq" class="klm-info__review-link">
-          4.8/5 &mdash; {{ section.settings.review_count | default: '2,960' }} Reviews
-        </a>
-      </div>
-
       <h1 class="klm-info__title">{{ product.title }}</h1>
 
       <div class="klm-info__price-row" id="klm-price-row">
@@ -277,22 +265,6 @@
     </div>
   </div>
 </div>
-
-{%- comment -%} ── RATING BANNER ────────────────────────────────────────────── {%- endcomment -%}
-<div class="klm-rating-banner">
-  <div class="container">
-    <div class="klm-rating-banner__inner">
-      <h2 class="klm-rating-banner__heading">Over {{ section.settings.customer_count | default: '10,000' }} Happy Customers</h2>
-      <div class="klm-rating-banner__stars">
-        {%- for i in (1..5) -%}
-          <svg class="klm-star klm-star--lg" viewBox="0 0 14 13" fill="currentColor" aria-hidden="true"><path d="M7 .5l1.76 3.56L13 4.75l-3 2.92.71 4.12L7 9.77l-3.71 2.02.71-4.12L1 4.75l4.24-.69L7 .5z"/></svg>
-        {%- endfor -%}
-      </div>
-      <p class="klm-rating-banner__sub">Rated 4.8/5 based on {{ section.settings.review_count | default: '2,960' }} verified reviews</p>
-    </div>
-  </div>
-</div>
-
 {%- comment -%} ── WHAT MAKES OUR MATTRESS GREAT ───────────────────────────── {%- endcomment -%}
 <section class="klm-features" id="klm-features">
   <div class="container">
@@ -804,8 +776,7 @@
 {
   "name": "Majestic Firm Product",
   "settings": [
-    { "type": "text", "id": "review_count", "label": "Review count display", "default": "2,960" },
-    { "type": "text", "id": "customer_count", "label": "Happy customers count", "default": "10,000+" },
+
     { "type": "text", "id": "dividebuy_text", "label": "DivideBuy info line", "default": "Spread the cost interest-free over 12 months, 0% credit." },
     { "type": "text", "id": "klarna_text", "label": "Klarna info line", "default": "Pay later in 30 days or split into 3 interest-free payments." }
   ]
