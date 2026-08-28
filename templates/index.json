@@ -148,7 +148,7 @@
       "settings": {},
       "blocks": {
         "badge1": { "type": "badge", "settings": { "icon": "warranty",  "text": "5 Years Warranty" } },
-        "badge2": { "type": "badge", "settings": { "icon": "trial",     "text": "60 Night Risk-Free Trial" } },
+        "badge2": { "type": "badge", "settings": { "icon": "trial",     "text": "Multiple Sizes Available" } },
         "badge3": { "type": "badge", "settings": { "icon": "finance",   "text": "0% Interest Rate" } },
         "badge4": { "type": "badge", "settings": { "icon": "delivery",  "text": "Fast Free Delivery" } },
         "badge5": { "type": "badge", "settings": { "icon": "handmade",  "text": "Handmade in the UK" } }
@@ -286,7 +286,7 @@
         "q2": { "type": "faq_item", "settings": { "question": "How long does delivery take once I've placed my order?", "answer": "<p>Standard delivery is 7–14 working days. Express delivery options are available at checkout. You will receive full tracking information once your order has been dispatched.</p>" } },
         "q3": { "type": "faq_item", "settings": { "question": "Can I choose my delivery date and time?", "answer": "<p>Yes — once your order is ready to dispatch, our delivery partner will contact you directly to arrange a convenient date and time window that suits you.</p>" } },
         "q4": { "type": "faq_item", "settings": { "question": "Can I track my order on my phone?", "answer": "<p>Absolutely. You'll receive an email with a real-time tracking link once your order is dispatched. You can also log into your account at any time to view your order status.</p>" } },
-        "q5": { "type": "faq_item", "settings": { "question": "What is the 60-night risk-free trial?", "answer": "<p>We're so confident in our products that we offer a 60-night risk-free trial. If you're not completely satisfied within the first 60 nights, contact us for a full refund or free replacement — no questions asked.</p>" } },
+        "q5": { "type": "faq_item", "settings": { "question": "How do I choose the right mattress?", "answer": "<p>Consider your preferred firmness, sleeping position and the level of support you need. Check each mattress description carefully or contact our team before ordering if you would like help comparing the available options.</p>" } },
         "q6": { "type": "faq_item", "settings": { "question": "What does the 5-year warranty cover?", "answer": "<p>Our 5-year warranty covers all manufacturing defects, structural issues and material faults. Simply contact our customer service team with your order number and we will handle your claim promptly.</p>" } },
         "q7": { "type": "faq_item", "settings": { "question": "Can I pay monthly using finance?", "answer": "<p>Yes! We offer 0% interest financing through Klarna and other providers at checkout. Split your purchase into manageable monthly instalments with no hidden fees or charges.</p>" } }
       },
