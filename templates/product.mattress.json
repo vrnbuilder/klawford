@@ -3,11 +3,12 @@
     "main": {
       "type": "main-mattress-product",
       "settings": {
-        "review_count": "4,210",
         "dividebuy_text": "Spread the cost interest-free over 12 months, 0% credit.",
         "klarna_text": "Pay later in 30 days or split into 3 interest-free payments."
       }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main"
+  ]
 }
