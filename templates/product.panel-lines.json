@@ -3,7 +3,6 @@
     "main": {
       "type": "main-product",
       "settings": {
-        "review_count": "284",
         "show_upsell": true,
         "upsell_1_label": "Add Mattress & Base",
         "upsell_2_label": "Choose Mattress"
@@ -72,62 +71,6 @@
         "img4",
         "img5",
         "img6"
-      ]
-    },
-    "social_proof": {
-      "type": "social-proof-bar",
-      "settings": {
-        "text": "Over 100,000 Happy Customers",
-        "rating_text": "Trustpilot 4.9/5"
-      },
-      "blocks": {
-        "r1": {
-          "type": "review",
-          "settings": {
-            "text": "Service was very good and the team were extremely helpful throughout.",
-            "author": "Sample Customer",
-            "time_ago": "1 day ago"
-          }
-        },
-        "r2": {
-          "type": "review",
-          "settings": {
-            "text": "Went to great lengths to make sure my order was right, really happy with it.",
-            "author": "Sample Customer",
-            "time_ago": "2 days ago"
-          }
-        },
-        "r3": {
-          "type": "review",
-          "settings": {
-            "text": "I couldn't be happier with the service I received, fast and easy.",
-            "author": "Sample Customer",
-            "time_ago": "2 days ago"
-          }
-        },
-        "r4": {
-          "type": "review",
-          "settings": {
-            "text": "The delivery was really fast and the bed and base look brilliant.",
-            "author": "Sample Customer",
-            "time_ago": "3 days ago"
-          }
-        },
-        "r5": {
-          "type": "review",
-          "settings": {
-            "text": "Great product, exactly as described, and easy to assemble.",
-            "author": "Sample Customer",
-            "time_ago": "4 days ago"
-          }
-        }
-      },
-      "block_order": [
-        "r1",
-        "r2",
-        "r3",
-        "r4",
-        "r5"
       ]
     },
     "product_features": {
@@ -438,7 +381,6 @@
   "order": [
     "main",
     "in_real_life",
-    "social_proof",
     "product_features",
     "product_dimensions",
     "product_finance",
