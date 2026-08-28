@@ -12,7 +12,6 @@
     "main": {
       "type": "main-product",
       "settings": {
-        "review_count": "312",
         "show_upsell": true,
         "upsell_1_label": "Add Mattress & Save",
         "upsell_2_label": "Choose Mattress"
@@ -91,62 +90,6 @@
         "a6",
         "a7",
         "a8"
-      ]
-    },
-    "social_proof": {
-      "type": "social-proof-bar",
-      "settings": {
-        "text": "Over 100,000 Happy Customers",
-        "rating_text": "Trustpilot 4.9/5"
-      },
-      "blocks": {
-        "r1": {
-          "type": "review",
-          "settings": {
-            "text": "The Athens Divan is stunning â€” really solid and the fabric feels incredibly premium. The storage drawers are huge and so easy to use.",
-            "author": "Claire B.",
-            "time_ago": "1 day ago"
-          }
-        },
-        "r2": {
-          "type": "review",
-          "settings": {
-            "text": "Delivery was perfect and the 2-man team assembled it in minutes. Looks even better in person. Absolutely love it.",
-            "author": "Mark T.",
-            "time_ago": "2 days ago"
-          }
-        },
-        "r3": {
-          "type": "review",
-          "settings": {
-            "text": "Best bed I've ever bought. The grey colour is gorgeous and the headboard is so comfortable to lean against.",
-            "author": "Priya S.",
-            "time_ago": "3 days ago"
-          }
-        },
-        "r4": {
-          "type": "review",
-          "settings": {
-            "text": "Great quality, great price and fast delivery. The storage drawers hold so much â€” transformed my bedroom completely.",
-            "author": "Jason R.",
-            "time_ago": "4 days ago"
-          }
-        },
-        "r5": {
-          "type": "review",
-          "settings": {
-            "text": "Cream Athens looks absolutely beautiful in my room. Klawford service was brilliant from start to finish.",
-            "author": "Hannah M.",
-            "time_ago": "5 days ago"
-          }
-        }
-      },
-      "block_order": [
-        "r1",
-        "r2",
-        "r3",
-        "r4",
-        "r5"
       ]
     },
     "product_features": {
@@ -475,7 +418,6 @@
   "order": [
     "main",
     "in_real_life",
-    "social_proof",
     "product_features",
     "product_dimensions",
     "product_finance",
