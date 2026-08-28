@@ -60,19 +60,6 @@
             </svg>
           </a>
         {%- endif -%}
-
-        <!-- Rating -->
-        <div class="feature-rating">
-          <div class="feature-rating__stars" aria-label="5 star rating">
-            {%- for i in (1..5) -%}
-              <div class="feature-rating__star" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              </div>
-            {%- endfor -%}
-          </div>
-          <span class="feature-rating__text">{{ section.settings.rating_text | default: '4.9 / 5 · Trustpilot' }}</span>
-        </div>
-
         <!-- Payment methods -->
         {%- if section.settings.show_payments -%}
           {%- render 'payment-icons' -%}
@@ -142,12 +129,7 @@
       "id": "cta_url",
       "label": "Button link"
     },
-    {
-      "type": "text",
-      "id": "rating_text",
-      "label": "Rating text",
-      "default": "4.9 / 5 · 12,400 Trustpilot reviews"
-    },
+    
     {
       "type": "checkbox",
       "id": "show_payments",
