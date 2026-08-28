@@ -3,7 +3,6 @@
     "main": {
       "type": "main-product",
       "settings": {
-        "review_count": "287",
         "show_upsell": true,
         "upsell_1_label": "Add Mattress & Save",
         "upsell_2_label": "Choose Mattress"
@@ -82,62 +81,6 @@
         "img6",
         "sd7",
         "sd8"
-      ]
-    },
-    "social_proof": {
-      "type": "social-proof-bar",
-      "settings": {
-        "text": "Over 100,000 Happy Customers",
-        "rating_text": "Trustpilot 4.9/5"
-      },
-      "blocks": {
-        "r1": {
-          "type": "review",
-          "settings": {
-            "text": "The San Diego is absolutely stunning â€” the plush velvet fabric feels incredibly premium and it looks even better in person than in the photos.",
-            "author": "Sophie H.",
-            "time_ago": "1 day ago"
-          }
-        },
-        "r2": {
-          "type": "review",
-          "settings": {
-            "text": "Delivery was smooth and the 2-man team set it up perfectly. The storage drawers are huge and so easy to use. Love this bed.",
-            "author": "Daniel W.",
-            "time_ago": "2 days ago"
-          }
-        },
-        "r3": {
-          "type": "review",
-          "settings": {
-            "text": "Best bed I've ever bought. The grey velvet looks gorgeous and the headboard is so comfortable to lean against while reading.",
-            "author": "Aisha T.",
-            "time_ago": "3 days ago"
-          }
-        },
-        "r4": {
-          "type": "review",
-          "settings": {
-            "text": "Great quality, great price. The storage drawers hold so much â€” completely transformed my bedroom. Would absolutely recommend Klawford.",
-            "author": "Tom B.",
-            "time_ago": "4 days ago"
-          }
-        },
-        "r5": {
-          "type": "review",
-          "settings": {
-            "text": "The cream San Diego looks beautiful in my room. Klawford service was brilliant from start to finish â€” fast delivery and easy assembly.",
-            "author": "Rachel M.",
-            "time_ago": "5 days ago"
-          }
-        }
-      },
-      "block_order": [
-        "r1",
-        "r2",
-        "r3",
-        "r4",
-        "r5"
       ]
     },
     "product_features": {
@@ -466,7 +409,6 @@
   "order": [
     "main",
     "in_real_life",
-    "social_proof",
     "product_features",
     "product_dimensions",
     "product_finance",
