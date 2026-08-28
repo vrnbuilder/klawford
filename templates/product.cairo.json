@@ -3,7 +3,6 @@
     "main": {
       "type": "main-product",
       "settings": {
-        "review_count": "247",
         "show_upsell": true,
         "upsell_1_label": "Add Mattress & Save",
         "upsell_2_label": "Choose Mattress"
@@ -266,62 +265,6 @@
         "a_red1",
         "ls_couple",
         "ls_other"
-      ]
-    },
-    "social_proof": {
-      "type": "social-proof-bar",
-      "settings": {
-        "text": "Over 100,000 Happy Customers",
-        "rating_text": "Trustpilot 4.9/5"
-      },
-      "blocks": {
-        "r1": {
-          "type": "review",
-          "settings": {
-            "text": "The Cairo Ottoman is absolutely beautiful. Lifts so smoothly and the storage space underneath is huge â€” exactly what I needed.",
-            "author": "Sophie L.",
-            "time_ago": "1 day ago"
-          }
-        },
-        "r2": {
-          "type": "review",
-          "settings": {
-            "text": "Delivery was smooth and the 2-man team assembled it perfectly. Looks even better in person than the photos.",
-            "author": "James H.",
-            "time_ago": "2 days ago"
-          }
-        },
-        "r3": {
-          "type": "review",
-          "settings": {
-            "text": "Stunning bed. The fabric quality is exceptional and the gas-lift mechanism is so easy to use. Highly recommend.",
-            "author": "Emma W.",
-            "time_ago": "3 days ago"
-          }
-        },
-        "r4": {
-          "type": "review",
-          "settings": {
-            "text": "Brilliant bed â€” really solid frame and the storage underneath holds everything. The grey colour looks incredible.",
-            "author": "David M.",
-            "time_ago": "4 days ago"
-          }
-        },
-        "r5": {
-          "type": "review",
-          "settings": {
-            "text": "Fast free delivery and brilliant quality. The Cream Cairo transforms my whole bedroom. 5 stars.",
-            "author": "Rachel K.",
-            "time_ago": "5 days ago"
-          }
-        }
-      },
-      "block_order": [
-        "r1",
-        "r2",
-        "r3",
-        "r4",
-        "r5"
       ]
     },
     "product_features": {
@@ -632,7 +575,6 @@
   "order": [
     "main",
     "in_real_life",
-    "social_proof",
     "product_features",
     "product_dimensions",
     "product_finance",
