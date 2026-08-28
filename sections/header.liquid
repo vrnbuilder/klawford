@@ -127,17 +127,14 @@
   <div class="header-benefits">
     <div class="container">
       <div class="header-benefits__inner">
-        <span class="header-benefit">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.3"/><path d="M4.5 7l2 2 3-3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Multiple Sizes Available
-        </span>
+        
         <span class="header-benefit">
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="1" y="4" width="12" height="7" rx="1" stroke="currentColor" stroke-width="1.3"/><path d="M4 4V3a3 3 0 0 1 6 0v1" stroke="currentColor" stroke-width="1.3"/></svg>
           {{ section.settings.benefit_2 | default: "Fast Free Delivery" }}
         </span>
         <span class="header-benefit">
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1l1.5 3 3.5.5-2.5 2.5.6 3.5L7 9l-3.1 1.5.6-3.5L2 4.5l3.5-.5L7 1z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
-          {{ section.settings.benefit_3 | default: "Handmade In UK" }}
+          Selected Beds Handmade in UK
         </span>
         <span class="header-benefit">
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="1" y="3" width="12" height="8" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M1 6h12" stroke="currentColor" stroke-width="1.3"/></svg>
@@ -255,10 +252,8 @@
       "type": "header",
       "content": "Benefits Strip"
     },
-    { "type": "checkbox", "id": "show_benefits", "label": "Show benefits strip", "default": true },
-    { "type": "text", "id": "benefit_1", "label": "Benefit 1", "default": "Multiple Sizes Available" },
-    { "type": "text", "id": "benefit_2", "label": "Benefit 2", "default": "Fast Free Delivery" },
-    { "type": "text", "id": "benefit_3", "label": "Benefit 3", "default": "Handmade In UK" },
+    { "type": "checkbox", "id": "show_benefits", "label": "Show benefits strip", "default": true },    { "type": "text", "id": "benefit_2", "label": "Benefit 2", "default": "Fast Free Delivery" },
+    { "type": "text", "id": "benefit_3", "label": "Benefit 3", "default": "Selected Beds Handmade in UK" },
     { "type": "text", "id": "benefit_4", "label": "Benefit 4", "default": "Pay Monthly" }
   ]
 }
