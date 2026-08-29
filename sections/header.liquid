@@ -90,10 +90,16 @@
     <div class="container">
       <ul class="header-nav__list" role="list">
         {%- for link in linklists[section.settings.menu].links -%}
+          {%- assign nav_title = link.title -%}
+          {%- assign nav_url = link.url -%}
+          {%- if link.title == 'Sofas' -%}
+            {%- assign nav_title = 'Rugby Beds' -%}
+            {%- assign nav_url = '/collections/rugby-bed-sets' -%}
+          {%- endif -%}
           <li class="header-nav__item{% if link.links.size > 0 %} has-dropdown{% endif %}{% if link.active %} is-active{% endif %}">
             {%- if link.links.size > 0 -%}
               <button class="header-nav__link" type="button" aria-haspopup="true" aria-expanded="false">
-                {{ link.title }}
+                {{ nav_title }}
                 <svg width="10" height="7" viewBox="0 0 10 7" fill="none" aria-hidden="true">
                   <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
@@ -112,8 +118,8 @@
                 </ul>
               </div>
             {%- else -%}
-              <a href="{{ link.url }}" class="header-nav__link" {% if link.active %}aria-current="page"{% endif %}>
-                {{ link.title }}
+              <a href="{{ nav_url }}" class="header-nav__link" {% if link.active %}aria-current="page"{% endif %}>
+                {{ nav_title }}
               </a>
             {%- endif -%}
           </li>
@@ -159,11 +165,17 @@
   </div>
   <ul class="mobile-menu__list" role="list">
     {%- for link in linklists[section.settings.menu].links -%}
+      {%- assign nav_title = link.title -%}
+      {%- assign nav_url = link.url -%}
+      {%- if link.title == 'Sofas' -%}
+        {%- assign nav_title = 'Rugby Beds' -%}
+        {%- assign nav_url = '/collections/rugby-bed-sets' -%}
+      {%- endif -%}
       <li class="mobile-menu__item{% if link.links.size > 0 %} has-sub{% endif %}">
         {%- if link.links.size > 0 -%}
           <button class="mobile-menu__link mobile-menu__toggle" type="button" aria-expanded="false"
             onclick="var sub=this.nextElementSibling;var open=sub.classList.toggle('is-open');this.setAttribute('aria-expanded',open);">
-            {{ link.title }}
+            {{ nav_title }}
             <svg class="mobile-menu__toggle-icon" width="11" height="7" viewBox="0 0 12 8" fill="none" aria-hidden="true">
               <path d="M1 1.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -178,7 +190,7 @@
             {%- endif -%}
           </ul>
         {%- else -%}
-          <a href="{{ link.url }}" class="mobile-menu__link">{{ link.title }}</a>
+          <a href="{{ nav_url }}" class="mobile-menu__link">{{ nav_title }}</a>
         {%- endif -%}
       </li>
     {%- endfor -%}
