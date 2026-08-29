@@ -2147,6 +2147,8 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--ff-primary); font-weight: var(--fw-bold);
 .kl-review-card__verified { font-size: 10px; color: #00B67A; margin-left: auto; white-space: nowrap; }
 
 /* Footer: rating + Trustpilot logo */
+.feature-rating { display: none !important; }
+
 .kl-reviews__footer {
   display: flex; align-items: center; justify-content: center; gap: 8px;
   font-size: 13px; color: #555; margin-top: 20px; flex-wrap: wrap;

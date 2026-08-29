@@ -2,7 +2,7 @@
   <div class="container">
     <div class="trust-badges__grid">
       {%- for block in section.blocks -%}
-        {%- if block.type == 'badge' -%}
+        {%- if block.type == 'badge' and block.settings.text != 'Multiple Sizes Available' -%}
           <div class="trust-badge" {{ block.shopify_attributes }}>
             <div class="trust-badge__icon" aria-hidden="true">
               {%- case block.settings.icon -%}
