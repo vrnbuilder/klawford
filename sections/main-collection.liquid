@@ -1,6 +1,8 @@
 {%- paginate collection.products by section.settings.products_per_page -%}
 
 {%- assign active_filter_count = 0 -%}
+{%- assign is_rugby_collection = false -%}
+{%- if collection.handle == 'rugby-bed-sets' -%}{%- assign is_rugby_collection = true -%}{%- endif -%}
 {%- for filter in collection.active_filters -%}
   {%- assign active_filter_count = active_filter_count | plus: 1 -%}
 {%- endfor -%}
@@ -69,7 +71,11 @@
       </button>
       <div class="kl-fg__body">
         <div class="kl-swatch-list">
-          {%- assign bed_sizes_d = 'Small Single 2FT6,Single 3FT,Small Double 4FT,Double 4FT6,King 5FT,Super King 6FT' | split: ',' -%}
+          {%- if is_rugby_collection -%}
+            {%- assign bed_sizes_d = 'Single 3FT,Double 4FT6,King 5FT' | split: ',' -%}
+          {%- else -%}
+            {%- assign bed_sizes_d = 'Small Single 2FT6,Single 3FT,Small Double 4FT,Double 4FT6,King 5FT,Super King 6FT' | split: ',' -%}
+          {%- endif -%}
           {%- for size in bed_sizes_d -%}
             <label class="kl-swatch-item">
               <input type="checkbox"
@@ -87,6 +93,10 @@
     {%- for filter in collection.filters -%}
       {%- if filter.label == 'Availability' -%}{%- continue -%}{%- endif -%}
       {%- if filter.label == 'Bedding size' -%}{%- continue -%}{%- endif -%}
+      {%- assign drawer_filter_label = filter.label | downcase -%}
+      {%- if is_rugby_collection and drawer_filter_label == 'size' -%}{%- continue -%}{%- endif -%}
+      {%- if is_rugby_collection and drawer_filter_label == 'color' -%}{%- continue -%}{%- endif -%}
+      {%- if is_rugby_collection and drawer_filter_label == 'colour' -%}{%- continue -%}{%- endif -%}
       <div class="kl-fg is-open" data-fg>
         <button class="kl-fg__head" type="button" onclick="this.closest('[data-fg]').classList.toggle('is-open')">
           <svg class="kl-fg__chevron" width="10" height="7" viewBox="0 0 12 8" fill="none" aria-hidden="true">
@@ -142,6 +152,24 @@
         </div>
       </div>
     {%- endfor -%}
+
+    {%- if is_rugby_collection -%}
+      <div class="kl-fg is-open" data-fg>
+        <button class="kl-fg__head" type="button" onclick="this.closest('[data-fg]').classList.toggle('is-open')">
+          <span>Colour</span>
+        </button>
+        <div class="kl-fg__body"><div class="kl-swatch-list">
+          {%- assign rugby_colours_d = 'White,Walnut,Grey,Black' | split: ',' -%}
+          {%- for colour in rugby_colours_d -%}
+            <label class="kl-swatch-item">
+              <input type="checkbox" name="filter.p.v.option.colour" value="{{ colour }}" form="kl-form-drawer" onchange="document.getElementById('kl-form-drawer').submit()">
+              <span class="kl-swatch-dot" style="background:{%- render 'swatch-color', name: colour -%};"></span>
+              <span class="kl-swatch-name">{{ colour }}</span>
+            </label>
+          {%- endfor -%}
+        </div></div>
+      </div>
+    {%- endif -%}
   </div>
 
   <div class="kl-drawer__foot">
@@ -295,7 +323,9 @@
           </button>
           <div class="kl-fg__body">
             <div class="kl-swatch-list">
-              {%- if is_mattress_col -%}
+              {%- if is_rugby_collection -%}
+                {%- assign bed_sizes = 'Single 3FT,Double 4FT6,King 5FT' | split: ',' -%}
+              {%- elsif is_mattress_col -%}
                 {%- assign bed_sizes = 'Single,Small Double,Double,King,Super King' | split: ',' -%}
               {%- else -%}
                 {%- assign bed_sizes = 'Small Single 2FT6,Single 3FT,Small Double 4FT,Double 4FT6,King 5FT,Super King 6FT' | split: ',' -%}
@@ -355,7 +385,11 @@
             </button>
             <div class="kl-fg__body">
               <div class="kl-swatch-list">
-                {%- assign static_colours = 'Cream,Red,Grey,Black,Brown' | split: ',' -%}
+                {%- if is_rugby_collection -%}
+                  {%- assign static_colours = 'White,Walnut,Grey,Black' | split: ',' -%}
+                {%- else -%}
+                  {%- assign static_colours = 'Cream,Red,Grey,Black,Brown' | split: ',' -%}
+                {%- endif -%}
                 {%- for colour in static_colours -%}
                   {%- assign _cl = colour | downcase -%}
                   {%- assign col_active = false -%}
