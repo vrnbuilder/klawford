@@ -16,8 +16,22 @@
       {%- comment -%}---- GALLERY ----{%- endcomment -%}
       <div class="product-gallery">
 
+        {%- assign is_rugby_bed = false -%}
+        {%- if template.suffix == 'rugby-bed-set' -%}
+          {%- assign is_rugby_bed = true -%}
+        {%- endif -%}
+
         <div class="product-gallery__main" id="product-gallery-main">
-          {%- if product.featured_image -%}
+          {%- if is_rugby_bed -%}
+            <img
+              id="product-main-img"
+              src="{{ 'rugby-white-01.jpg' | asset_url }}"
+              alt="Rugby High Gloss Smart Ottoman Storage Bed in White"
+              width="1200"
+              height="1600"
+              loading="eager"
+              fetchpriority="high">
+          {%- elsif product.featured_image -%}
             <img
               id="product-main-img"
               src="{{ product.featured_image | image_url: width: 900 }}"
@@ -39,7 +53,33 @@
           </span>
         </div>
 
-        {%- if product.images.size > 1 -%}
+        {%- if is_rugby_bed -%}
+          {%- assign rugby_colours = 'white|walnut|grey|black' | split: '|' -%}
+          <div class="product-gallery__thumb-wrap">
+            <button class="gallery-arrow gallery-arrow--prev" id="thumb-prev" aria-label="Previous images" type="button">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="product-gallery__thumbs" id="product-thumbs">
+              {%- for rugby_colour in rugby_colours -%}
+                {%- for image_number in (1..7) -%}
+                  {%- assign padded_number = image_number | prepend: '0' | slice: -2, 2 -%}
+                  {%- assign rugby_filename = 'rugby-' | append: rugby_colour | append: '-' | append: padded_number | append: '.jpg' -%}
+                  <button
+                    class="product-gallery__thumb {% if rugby_colour == 'white' and image_number == 1 %}active{% endif %}{% unless rugby_colour == 'white' %} hidden{% endunless %}"
+                    type="button"
+                    data-src="{{ rugby_filename | asset_url }}"
+                    data-colour="{{ rugby_colour }}"
+                    aria-label="View {{ rugby_colour | capitalize }} Rugby Bed image {{ image_number }}">
+                    <img src="{{ rugby_filename | asset_url }}" alt="Rugby High Gloss Smart Ottoman Storage Bed in {{ rugby_colour | capitalize }}" width="80" height="80" loading="lazy">
+                  </button>
+                {%- endfor -%}
+              {%- endfor -%}
+            </div>
+            <button class="gallery-arrow gallery-arrow--next" id="thumb-next" aria-label="Next images" type="button">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 2l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        {%- elsif product.images.size > 1 -%}
           <div class="product-gallery__thumb-wrap">
             <button class="gallery-arrow gallery-arrow--prev" id="thumb-prev" aria-label="Previous images" type="button">
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -205,7 +245,8 @@
                 </button>
                 {%- assign tab_first = false -%}
               {%- endfor -%}
-              {%- comment -%} Headboard tab — always shown, stored as line item property {%- endcomment -%}
+              {%- comment -%} Headboard choices apply only to configurable divan beds. {%- endcomment -%}
+              {%- unless is_rugby_bed -%}
               <button
                 type="button"
                 class="variant-option-tab"
@@ -217,6 +258,7 @@
                 <p class="variant-option-tab__name">Headboard</p>
                 <p class="variant-option-tab__value" id="opt-tab-headboard">No Headboard</p>
               </button>
+              {%- endunless -%}
             </div>
 
             {%- comment -%} Variant panels — one per allowed option {%- endcomment -%}
@@ -362,6 +404,7 @@
             {%- endfor -%}
 
             {%- comment -%} Headboard panel — 3 hardcoded options stored as line item property {%- endcomment -%}
+            {%- unless is_rugby_bed -%}
             {%- assign headboard_upgrade_product = all_products['54-floor-standing-headboard-upgrade'] -%}
             {%- for addon_candidate in collections.all.products -%}
               {%- if addon_candidate.title == '54" Floor Standing Headboard Upgrade' -%}
@@ -438,6 +481,7 @@
                 </button>
               </div>
             </div>
+            {%- endunless -%}
 
           {%- endunless -%}
 
@@ -458,6 +502,13 @@
           </button>
 
         {%- endform -%}
+
+        {%- if is_rugby_bed -%}
+          <div class="rte" style="margin-top:22px;">
+            <p>A statement storage bed combining a sleek high-gloss finish with genuinely useful bedside technology. The Rugby includes gas-assisted ottoman storage, concealed headboard compartments, warm LED lighting, integrated speakers, wireless charging and USB charging ports.</p>
+            <p><strong>Bed frame and fixed smart headboard included.</strong> Mattress, bedside cabinets, bedding and decorative accessories are sold separately.</p>
+          </div>
+        {%- endif -%}
 
         <div class="product-post-atc">
           <div class="product-post-atc__delivery">
@@ -1013,6 +1064,7 @@
 })();
 </script>
 
+{%- unless is_rugby_bed -%}
 <script>
 // ---- Headboard tab switching (panel is now hardcoded in Liquid) ----
 (function(){
@@ -1168,6 +1220,7 @@
   updateArrows();
 })();
 </script>
+{%- endunless -%}
 
 {% schema %}
 {

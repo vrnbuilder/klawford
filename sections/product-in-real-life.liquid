@@ -14,10 +14,14 @@
     <div class="loved-gallery__track" id="product-gallery-track">
       {%- if section.blocks.size > 0 -%}
         {%- for block in section.blocks -%}
+          {%- assign gallery_image_url = block.settings.image_src -%}
+          {%- if block.settings.image_src contains 'rugby-' -%}
+            {%- assign gallery_image_url = block.settings.image_src | asset_url -%}
+          {%- endif -%}
           <div class="gallery-item" {{ block.shopify_attributes }}>
             <div class="gallery-item__img">
               <img
-                src="{{ block.settings.image_src }}"
+                src="{{ gallery_image_url }}"
                 alt="{{ block.settings.alt | default: 'Klawford bed lifestyle' }}"
                 loading="lazy"
                 width="800"
