@@ -2,7 +2,83 @@
   assign ph = page.handle
 -%}
 
-{%- if ph == 'about-us' or ph == 'about' -%}
+{%- if ph == 'contact' or ph == 'contact-us' -%}
+
+<script>
+document.title = 'Contact Klawford | Customer Service & Showroom';
+</script>
+
+<div class="contact-page">
+  <div class="container contact-page__inner">
+    <div class="contact-page__intro">
+      <p class="contact-page__eyebrow">We’re here to help</p>
+      <h1>Contact Klawford</h1>
+      <p>Need help choosing a bed, checking delivery availability or discussing an existing order? Contact our team and we’ll be happy to help.</p>
+    </div>
+
+    <div class="contact-page__grid">
+      <div class="contact-details">
+        <div class="contact-details__item">
+          <h2>Email</h2>
+          <a href="mailto:contact@klawford.com">contact@klawford.com</a>
+        </div>
+        <div class="contact-details__item">
+          <h2>WhatsApp</h2>
+          <a href="https://wa.me/447830185149" target="_blank" rel="noopener">+44 7830 185149</a>
+        </div>
+        <div class="contact-details__item">
+          <h2>Opening hours</h2>
+          <p>Monday–Saturday<br>9:00 am–6:00 pm</p>
+        </div>
+        <div class="contact-details__item">
+          <h2>Address</h2>
+          <address>Twickenham Trading Estate<br>Rugby Road<br>Twickenham<br>TW1 1DQ</address>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap">
+        <h2>Send us a message</h2>
+        {%- form 'contact', id: 'ContactForm', class: 'contact-form' -%}
+          {%- if form.posted_successfully? -%}
+            <p class="contact-form__success" tabindex="-1" autofocus>Thank you. Your message has been sent and our team will respond as soon as possible.</p>
+          {%- elsif form.errors -%}
+            <div class="contact-form__error" role="alert">Please check the highlighted fields and try again.</div>
+          {%- endif -%}
+
+          <div class="contact-form__row">
+            <div>
+              <label for="ContactForm-name">Name</label>
+              <input id="ContactForm-name" type="text" name="contact[name]" value="{{ form.name | escape }}" autocomplete="name" required>
+            </div>
+            <div>
+              <label for="ContactForm-email">Email</label>
+              <input id="ContactForm-email" type="email" name="contact[email]" value="{{ form.email | escape }}" autocomplete="email" required>
+            </div>
+          </div>
+          <div class="contact-form__row">
+            <div>
+              <label for="ContactForm-phone">Telephone</label>
+              <input id="ContactForm-phone" type="tel" name="contact[phone]" value="{{ form.phone | escape }}" autocomplete="tel">
+            </div>
+            <div>
+              <label for="ContactForm-order">Order number <span>(optional)</span></label>
+              <input id="ContactForm-order" type="text" name="contact[order_number]">
+            </div>
+          </div>
+          <label for="ContactForm-body">How can we help?</label>
+          <textarea id="ContactForm-body" name="contact[body]" rows="7" required>{{ form.body }}</textarea>
+          <button type="submit" class="btn btn--primary">Send Message</button>
+        {%- endform -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.contact-page{padding:clamp(3rem,7vw,6rem) 0;background:#faf8f5}.contact-page__inner{max-width:1180px}.contact-page__intro{max-width:720px;margin-bottom:2.5rem}.contact-page__eyebrow{text-transform:uppercase;letter-spacing:.12em;color:var(--clr-primary);font-size:.78rem;font-weight:700}.contact-page__intro h1{font-family:var(--ff-primary);font-size:clamp(2.2rem,5vw,4rem);margin:.4rem 0 1rem;color:var(--clr-secondary)}.contact-page__intro>p:last-child{line-height:1.7;color:var(--clr-text-light)}.contact-page__grid{display:grid;grid-template-columns:minmax(260px,.75fr) minmax(0,1.5fr);gap:2rem}.contact-details,.contact-form-wrap{background:#fff;border:1px solid #e7ded5;border-radius:var(--radius-base);padding:clamp(1.5rem,3vw,2.5rem)}.contact-details{display:grid;gap:1.65rem;align-content:start}.contact-details__item h2,.contact-form-wrap h2{font-family:var(--ff-primary);font-size:1.25rem;color:var(--clr-secondary);margin:0 0 .45rem}.contact-details__item p,.contact-details__item address{font-style:normal;line-height:1.65;margin:0;color:var(--clr-text-light)}.contact-details__item a{color:var(--clr-primary);font-weight:600;text-decoration:underline;text-underline-offset:3px}.contact-form{display:grid;gap:1.1rem}.contact-form__row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.contact-form label{display:block;font-weight:600;font-size:.9rem;margin-bottom:.4rem;color:var(--clr-secondary)}.contact-form label span{font-weight:400;color:var(--clr-text-light)}.contact-form input,.contact-form textarea{width:100%;border:1px solid #d8cec5;border-radius:6px;padding:.85rem 1rem;font:inherit;background:#fff}.contact-form textarea{resize:vertical}.contact-form input:focus,.contact-form textarea:focus{outline:2px solid var(--clr-primary);outline-offset:1px}.contact-form .btn{justify-self:start;border:0}.contact-form__success{padding:1rem;background:#e8f5ec;color:#176b37;border-radius:6px}.contact-form__error{padding:1rem;background:#fff0f0;color:#9c2020;border-radius:6px}@media(max-width:760px){.contact-page__grid{grid-template-columns:1fr}.contact-form__row{grid-template-columns:1fr}}
+</style>
+
+{%- elsif ph == 'about-us' or ph == 'about' -%}
 
 <script>
 document.title = 'About Klawford | Luxury Handmade Beds & Mattresses UK';
