@@ -7,13 +7,11 @@
       {%- for r in repeated -%}
         <div class="promo-marquee__item">
           <span class="promo-dot"></span>
-          <span>TODAY'S DAILY DEAL</span>
+          <span>SUMMER SALE</span>
           <span class="promo-dot"></span>
-          <span>EXTRA {{ section.settings.discount }}% OFF</span>
+          <span>SALE PRICES ALREADY APPLIED</span>
           <span class="promo-dot"></span>
           <span>ENDS IN <span class="promo-countdown__time" data-end="{{ section.settings.countdown_end }}">00:00:00</span></span>
-          <span class="promo-dot"></span>
-          <span>USE CODE <span class="promo-code-pill">{{ section.settings.code }}</span></span>
         </div>
       {%- endfor -%}
 
@@ -25,18 +23,6 @@
 {
   "name": "Promo Banner",
   "settings": [
-    {
-      "type": "text",
-      "id": "discount",
-      "label": "Discount percentage",
-      "default": "25"
-    },
-    {
-      "type": "text",
-      "id": "code",
-      "label": "Promo code",
-      "default": "EXTRA25"
-    },
     {
       "type": "number",
       "id": "countdown_end",

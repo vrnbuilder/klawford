@@ -13,11 +13,11 @@
       "type": "hero-banner",
       "settings": {
         "heading": "Summer Sale",
-        "subheading": "EXTRA 30% OFF",
+        "subheading": "Sale prices already applied",
         "badge_text": "Summer Sale",
-        "promo_code": "EXTRA30",
-        "show_floating_badge": true,
-        "floating_pct": "30"
+        "promo_code": "",
+        "show_floating_badge": false,
+        "floating_pct": ""
       },
       "blocks": {
         "btn_shop": {
@@ -269,8 +269,8 @@
     "promo_banner": {
       "type": "promo-banner",
       "settings": {
-        "discount": "30",
-        "code": "EXTRA30"
+        "discount": "",
+        "code": ""
       }
     },
     "how_it_works": {
