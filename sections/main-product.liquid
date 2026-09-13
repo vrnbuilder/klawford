@@ -291,7 +291,9 @@
                     {%- if is_colour -%}
                       {%- assign _swatch_val_lower = value | downcase -%}
                       {%- if is_rugby_bed -%}
-                        {%- if _swatch_val_lower == 'white' -%}
+                        {%- if _swatch_val_lower == 'black' -%}
+                          {%- assign rugby_swatch_asset = 'rugby-black-05.jpg' -%}
+                        {%- elsif _swatch_val_lower == 'white' -%}
                           {%- assign rugby_swatch_asset = 'rugby-white-05.jpg' -%}
                         {%- else -%}
                           {%- assign rugby_swatch_asset = 'rugby-' | append: _swatch_val_lower | append: '-01.jpg' -%}
