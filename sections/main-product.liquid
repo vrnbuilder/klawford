@@ -20,6 +20,10 @@
         {%- if template.suffix == 'rugby-bed-set' -%}
           {%- assign is_rugby_bed = true -%}
         {%- endif -%}
+        {%- assign is_cairo_bed = false -%}
+        {%- if template.suffix == 'cairo' -%}
+          {%- assign is_cairo_bed = true -%}
+        {%- endif -%}
 
         <div class="product-gallery__main" id="product-gallery-main">
           {%- if is_rugby_bed -%}
@@ -256,7 +260,7 @@
                   <svg width="26" height="26" viewBox="0 0 22 22" fill="none"><rect x="3" y="3" width="16" height="11" rx="3" stroke="currentColor" stroke-width="1.3"/><path d="M3 19h16M7 19v-4M15 19v-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
                 </div>
                 <p class="variant-option-tab__name">Headboard</p>
-                <p class="variant-option-tab__value" id="opt-tab-headboard">No Headboard</p>
+                <p class="variant-option-tab__value" id="opt-tab-headboard">{% if is_cairo_bed %}Headboard Included{% else %}No Headboard{% endif %}</p>
               </button>
               {%- endunless -%}
             </div>
@@ -412,9 +416,28 @@
                 {%- break -%}
               {%- endif -%}
             {%- endfor -%}
-            <input type="hidden" name="properties[Headboard]" id="headboard-property" value="No Headboard">
+            <input type="hidden" name="properties[Headboard]" id="headboard-property" value="{% if is_cairo_bed %}Headboard Included{% else %}No Headboard{% endif %}">
             <input type="hidden" id="headboard-addon-variant-id" value="55151063564617">
             <div class="variant-panel hidden" id="vpanel-headboard">
+              {%- if is_cairo_bed -%}
+              <div class="variant-grid" style="grid-template-columns: 1fr;">
+                <button type="button" class="variant-card active" aria-pressed="true" data-hb-value="Headboard Included" data-hb-price="0">
+                  <div class="variant-card__check">✓</div>
+                  <div class="variant-card__img">
+                    <div class="variant-card__bed-icon">
+                      <svg viewBox="0 0 100 72" fill="none" style="width:100%;color:var(--clr-secondary);">
+                        <rect x="10" y="1" width="80" height="23" rx="8" stroke="currentColor" stroke-width="1.4"/>
+                        <rect x="4" y="24" width="92" height="24" rx="2" stroke="currentColor" stroke-width="1.4"/>
+                        <line x1="4" y1="32" x2="96" y2="32" stroke="currentColor" stroke-width="1.1"/>
+                        <line x1="12" y1="48" x2="12" y2="62" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                        <line x1="88" y1="48" x2="88" y2="62" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <span class="variant-card__name">Headboard Included</span>
+                </button>
+              </div>
+              {%- else -%}
               <div class="variant-grid" style="grid-template-columns: repeat(3, 1fr);">
                 <button type="button" class="variant-card active" aria-pressed="true" data-hb-value="No Headboard" data-hb-price="0">
                   <div class="variant-card__check">✓</div>
@@ -480,6 +503,7 @@
                   <span class="variant-card__price-mod">+£15.00</span>
                 </button>
               </div>
+              {%- endif -%}
             </div>
             {%- endunless -%}
 
