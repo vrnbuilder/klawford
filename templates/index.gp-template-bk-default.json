@@ -131,7 +131,7 @@
           "type": "badge",
           "settings": {
             "icon": "trial",
-            "text": "60 Night Risk-Free Trial"
+            "text": "Customer Support"
           }
         },
         "badge3": {
@@ -178,8 +178,8 @@
           "type": "feature",
           "settings": {
             "icon": "happiness",
-            "title": "Happiness Guaranteed or Money Back",
-            "description": "We're so committed to your satisfaction that after 6 months, if you're not happy simply return it or swap for a new one — no questions asked."
+            "title": "Customer Support",
+            "description": "For returns information, please review our published returns policy or contact our customer service team before ordering."
           }
         },
         "f2": {
@@ -401,8 +401,8 @@
         "q5": {
           "type": "faq_item",
           "settings": {
-            "question": "What is the 60-night risk-free trial?",
-            "answer": "<p>We're so confident in our products that we offer a 60-night risk-free trial. If you're not completely satisfied within the first 60 nights, contact us for a full refund or free replacement — no questions asked.</p>"
+            "question": "What is the returns policy?",
+            "answer": "For returns information, please review our published returns policy or contact our customer service team before ordering."
           }
         },
         "q6": {

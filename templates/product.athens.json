@@ -102,8 +102,8 @@
           "type": "feature",
           "settings": {
             "image_src": "https://cdn.shopify.com/s/files/1/0960/5588/6153/files/athens-black-WhatsApp_Image_2026_08_17_at_7.38.55_AM.jpeg",
-            "title": "60 Night Risk-Free Trial",
-            "description": "<p>We're so confident you'll love your Athens bed that we offer a full 60-night risk-free trial. Not satisfied within the first 60 nights? Simply contact us for a hassle-free return or swap â€” no questions asked. Sleep easy knowing your purchase is completely protected. Our friendly customer care team is available 7 days a week to assist you, ensuring your Klawford experience is nothing short of perfect from the moment you order to the night you first sleep in it.</p>"
+            "title": "Customer Support",
+            "description": "For returns information, please review our published returns policy or contact our customer service team before ordering."
           }
         },
         "f2": {
@@ -377,8 +377,8 @@
         "q5": {
           "type": "faq_item",
           "settings": {
-            "question": "What is the 60-night risk-free trial?",
-            "answer": "<p>We're so confident in our products that we offer a 60-night risk-free trial. If you're not completely satisfied within the first 60 nights, contact us for a full refund or free replacement â€” no questions asked.</p>"
+            "question": "What is the returns policy?",
+            "answer": "For returns information, please review our published returns policy or contact our customer service team before ordering."
           }
         },
         "q6": {
