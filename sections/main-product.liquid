@@ -1079,8 +1079,9 @@
       filterThumbs(selectedOptions[colourIdx], null);
     }
 
-    // Fix colour swatch images: read first gallery thumb per colour (reliable — no API needed)
-    if(colourIdx >= 0) {
+    // Standard products use their first colour thumbnail. Rugby cards already
+    // have curated full-bed assets and must not be overwritten by detail shots.
+    if(colourIdx >= 0 && {{ is_rugby_bed | json }} === false) {
       var colourFirstSrc = {};
       document.querySelectorAll('.product-gallery__thumb[data-colour]').forEach(function(t){
         var col = (t.getAttribute('data-colour') || '').trim().toLowerCase();
