@@ -65,15 +65,20 @@
             </button>
             <div class="product-gallery__thumbs" id="product-thumbs">
               {%- for rugby_colour in rugby_colours -%}
-                {%- for image_number in (1..7) -%}
-                  {%- assign padded_number = image_number | prepend: '0' | slice: -2, 2 -%}
+                {%- case rugby_colour -%}
+                  {%- when 'black' -%}{%- assign rugby_image_order = '05|02|04|07|01|03|06' | split: '|' -%}
+                  {%- when 'grey' -%}{%- assign rugby_image_order = '01|02|03|07|04|05|06' | split: '|' -%}
+                  {%- when 'white' -%}{%- assign rugby_image_order = '05|06|02|01|07|03|04' | split: '|' -%}
+                  {%- when 'walnut' -%}{%- assign rugby_image_order = '01|02|04|06|05|07|03' | split: '|' -%}
+                {%- endcase -%}
+                {%- for padded_number in rugby_image_order -%}
                   {%- assign rugby_filename = 'rugby-' | append: rugby_colour | append: '-' | append: padded_number | append: '.jpg' -%}
                   <button
-                    class="product-gallery__thumb {% if rugby_colour == 'white' and image_number == 1 %}active{% endif %}{% unless rugby_colour == 'white' %} hidden{% endunless %}"
+                    class="product-gallery__thumb {% if rugby_colour == 'white' and forloop.first %}active{% endif %}{% unless rugby_colour == 'white' %} hidden{% endunless %}"
                     type="button"
                     data-src="{{ rugby_filename | asset_url }}"
                     data-colour="{{ rugby_colour }}"
-                    aria-label="View {{ rugby_colour | capitalize }} Rugby Bed image {{ image_number }}">
+                    aria-label="View {{ rugby_colour | capitalize }} Rugby Bed image {{ forloop.index }}">
                     <img src="{{ rugby_filename | asset_url }}" alt="Rugby High Gloss Smart Ottoman Storage Bed in {{ rugby_colour | capitalize }}" width="80" height="80" loading="lazy">
                   </button>
                 {%- endfor -%}
