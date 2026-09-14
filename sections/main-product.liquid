@@ -328,6 +328,7 @@
                       data-option-index="{{ forloop.parentloop.index0 }}"
                       data-value="{{ value | escape }}"
                       data-option-tab-id="opt-tab-{{ forloop.parentloop.index }}"
+                      {% if rugby_swatch_asset != blank %}data-preferred-src="{{ rugby_swatch_asset | asset_url }}"{% endif %}
                       aria-pressed="{% if option.selected_value == value %}true{% else %}false{% endif %}">
                       <div class="variant-card__check">✓</div>
                       <div class="variant-card__img">
@@ -855,7 +856,7 @@
       var optName = productOptions[idx] || '';
       var isColour = optName.toLowerCase() === 'colour' || optName.toLowerCase() === 'color';
       if (isColour) {
-        filterThumbs(val, null);
+        filterThumbs(val, card.getAttribute('data-preferred-src') || null);
       } else if (variant && variant.featured_image) {
         var mainImg = document.getElementById('product-main-img');
         if(mainImg){
@@ -1078,7 +1079,9 @@
     var colourIdx = -1;
     opts.forEach(function(o, i){ if(o.toLowerCase()==='colour'||o.toLowerCase()==='color') colourIdx=i; });
     if(colourIdx >= 0 && selectedOptions[colourIdx]) {
-      filterThumbs(selectedOptions[colourIdx], null);
+      var activeColourCard = document.querySelector('.variant-card.active[data-option-index="' + colourIdx + '"]');
+      var initialPreferredSrc = activeColourCard ? activeColourCard.getAttribute('data-preferred-src') : null;
+      filterThumbs(selectedOptions[colourIdx], initialPreferredSrc || null);
     }
 
     // Standard products use their first colour thumbnail. Rugby cards already
