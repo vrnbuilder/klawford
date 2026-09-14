@@ -66,10 +66,10 @@
             <div class="product-gallery__thumbs" id="product-thumbs">
               {%- for rugby_colour in rugby_colours -%}
                 {%- case rugby_colour -%}
-                  {%- when 'black' -%}{%- assign rugby_image_order = '05|02|04|07|01|03|06' | split: '|' -%}
-                  {%- when 'grey' -%}{%- assign rugby_image_order = '01|02|03|07|04|05|06' | split: '|' -%}
+                  {%- when 'black' -%}{%- assign rugby_image_order = '05|02|04|07|08|01|03|06' | split: '|' -%}
+                  {%- when 'grey' -%}{%- assign rugby_image_order = '01|02|03|07|08|04|05|06' | split: '|' -%}
                   {%- when 'white' -%}{%- assign rugby_image_order = '05|06|02|01|07|03|04' | split: '|' -%}
-                  {%- when 'walnut' -%}{%- assign rugby_image_order = '01|02|04|06|05|07|03' | split: '|' -%}
+                  {%- when 'walnut' -%}{%- assign rugby_image_order = '01|02|04|06|08|05|07|03' | split: '|' -%}
                 {%- endcase -%}
                 {%- for padded_number in rugby_image_order -%}
                   {%- assign rugby_filename = 'rugby-' | append: rugby_colour | append: '-' | append: padded_number | append: '.jpg' -%}
