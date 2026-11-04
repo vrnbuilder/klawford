@@ -12,13 +12,13 @@
     "hero_banner": {
       "type": "hero-banner",
       "settings": {
-        "heading": "Sale",
-        "subheading": "Sale prices already applied",
-        "badge_text": "Summer",
+        "heading": "Beds, Mattresses & Bedroom Furniture",
+        "subheading": "Browse our collections and find the right fit for your home.",
+        "badge_text": "Klawford",
         "promo_code": "",
         "trust_text": "",
-        "cta_label": "Shop Sale Now",
-        "cta_url": "/collections/all",
+        "cta_label": "Shop Beds",
+        "cta_url": "/collections/beds",
         "show_floating_badge": false,
         "floating_pct": ""
       },
@@ -26,7 +26,7 @@
         "btn_shop": {
           "type": "button",
           "settings": {
-            "label": "Shop Sale Now",
+            "label": "Shop Beds",
             "url": "/collections/all"
           }
         },
