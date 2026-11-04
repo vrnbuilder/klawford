@@ -22,6 +22,13 @@
                   loading="lazy"
                   width="700"
                   height="500">
+              {%- elsif block.settings.label == 'Rugby Bed Set' -%}
+                <img
+                  src="{{ 'klawford-category-rugby-beds.jpg' | asset_url }}"
+                  alt="{{ block.settings.label | escape }}"
+                  loading="lazy"
+                  width="700"
+                  height="500">
               {%- else -%}
                 <div class="bed-cat-card__placeholder">
                   <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
