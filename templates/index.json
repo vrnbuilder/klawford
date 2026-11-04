@@ -54,8 +54,8 @@
         "btn_sofas": {
           "type": "button",
           "settings": {
-            "label": "Sofas",
-            "url": "/collections/sofas"
+            "label": "Rugby Beds",
+            "url": "/collections/rugby-bed-sets"
           }
         }
       },
@@ -90,8 +90,8 @@
         "cat3": {
           "type": "category",
           "settings": {
-            "label": "Sofas",
-            "url": "/collections/sofas"
+            "label": "Rugby Beds",
+            "url": "/collections/rugby-bed-sets"
           }
         },
         "cat4": {
