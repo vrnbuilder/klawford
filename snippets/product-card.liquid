@@ -161,7 +161,18 @@
             height="450">
         {%- endif -%}
       {%- else -%}
+        {%- if product.title contains 'Headboard' -%}
+        <img
+          class="product-card__img--primary"
+          src="{{ 'klawford-category-headboards.jpg' | asset_url }}"
+          alt="{{ product.title | escape }}"
+          loading="lazy"
+          width="600"
+          height="450"
+          itemprop="image">
+      {%- else -%}
         {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}
       {%- endif -%}
     </a>
 
