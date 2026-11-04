@@ -1,13 +1,12 @@
 <!-- Announcement bar -->
-{%- if section.settings.show_announcement -%}
-<div class="promo-bar" aria-label="Promotional announcement">
+{%- assign announcement_text = section.settings.announcement_text | strip -%}
+{%- if announcement_text contains 'SUMMER SALE' -%}
+  {%- assign announcement_text = 'Browse beds and mattresses' -%}
+{%- endif -%}
+{%- if section.settings.show_announcement and announcement_text != blank -%}
+<div class="promo-bar" aria-label="Store announcement">
   <div class="promo-bar__text">
-    <span>{{ section.settings.announcement_text | default: "SUMMER SALE — PRICES REDUCED — ENDS SOON:" }}</span>
-    <span class="promo-bar__countdown-group">
-      <span class="promo-bar__countdown promo-countdown__time" data-unit="h">00 h</span>
-      <span class="promo-bar__countdown promo-countdown__time" data-unit="m">00 m</span>
-      <span class="promo-bar__countdown promo-countdown__time" data-unit="s">00 s</span>
-    </span>
+    <span>{{ announcement_text }}</span>
     {%- if section.settings.promo_code != blank -%}
       <span>USE CODE</span>
       <button type="button" class="promo-bar__code" id="promo-code-copy" data-code="{{ section.settings.promo_code }}" aria-label="Copy promo code">
@@ -18,7 +17,6 @@
   </div>
 </div>
 {%- endif -%}
-
 <header class="site-header" id="site-header" role="banner">
 
   <!-- Top row: search | logo | actions — UNCHANGED -->
@@ -260,7 +258,7 @@
       "content": "Announcement Bar"
     },
     { "type": "checkbox", "id": "show_announcement", "label": "Show announcement bar", "default": true },
-    { "type": "text", "id": "announcement_text", "label": "Announcement text", "default": "SUMMER SALE — PRICES REDUCED — ENDS SOON:" },
+    { "type": "text", "id": "announcement_text", "label": "Announcement text", "default": "Browse beds and mattresses" },
     { "type": "text", "id": "promo_code", "label": "Promo code" },
     {
       "type": "header",
