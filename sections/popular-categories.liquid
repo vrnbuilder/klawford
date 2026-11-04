@@ -7,10 +7,6 @@
 
           {%- assign category_label = block.settings.label -%}
           {%- assign category_url = block.settings.url | default: '/collections/all' -%}
-          {%- if category_label == 'Sofas' -%}
-            {%- assign category_label = 'Rugby Beds' -%}
-            {%- assign category_url = '/collections/rugby-bed-sets' -%}
-          {%- endif -%}
 
           {%- comment -%} Pick a fallback image based on the category label {%- endcomment -%}
           {%- case category_label -%}
