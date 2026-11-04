@@ -12,8 +12,8 @@
     "hero_banner": {
       "type": "hero-banner",
       "settings": {
-        "heading": "Beds, Mattresses & Bedroom Furniture",
-        "subheading": "Browse our collections and find the right fit for your home.",
+        "heading": "Beds & Mattresses",
+        "subheading": "Shop beds, mattresses and headboards for your home.",
         "badge_text": "Klawford",
         "promo_code": "",
         "trust_text": "",
@@ -139,7 +139,7 @@
             "label": "Rugby Bed Set",
             "sub": "Premium divan bed set — 5 colours available",
             "badge": "New",
-            "image_src": "https://cdn.shopify.com/s/files/1/0960/5588/6153/files/image_6.jpg",
+            "image_src": "",
             "url": "/products/klawford-rugby-divan-bed"
           }
         }
@@ -374,7 +374,7 @@
             "spec1": "31cm total depth",
             "spec2": "Zoned pocket spring system",
             "spec3": "Cooling gel memory foam",
-            "price_text": "From £249",
+            "price_text": "From £335.99",
             "cta_label": "Shop Now"
           }
         },
@@ -389,7 +389,7 @@
             "spec1": "Dual-sided comfort zones",
             "spec2": "Bamboo-infused cover",
             "spec3": "Motion isolation",
-            "price_text": "From £299",
+            "price_text": "From £295.99",
             "cta_label": "Shop Now"
           }
         },
@@ -403,7 +403,7 @@
             "spec1": "25cm orthopaedic foam",
             "spec2": "Extra-firm support",
             "spec3": "300gsm breathable cover",
-            "price_text": "From £199",
+            "price_text": "From £275.99",
             "cta_label": "Shop Now"
           }
         }
@@ -424,7 +424,7 @@
         "cta_url": "/collections/mattresses",
         "show_payments": true,
         "image_position": "left",
-        "price_range": "From £249 — £799"
+        "price_range": "From £275.99 — £515.99"
       },
       "blocks": {
         "m1": {
