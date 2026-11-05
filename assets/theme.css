@@ -4456,3 +4456,25 @@ body,
 .cart-overlay { z-index: 2147483645; }
 .cart-drawer { z-index: 2147483646; isolation: isolate; }
 .cart-drawer__foot { position: relative; z-index: 2; }
+
+
+/* Klawford homepage hero: keep the full heading visible without oversized clipping. */
+.hero-banner__heading {
+  font-size: clamp(48px, 7vw, 108px) !important;
+  line-height: 0.98 !important;
+  letter-spacing: -2px !important;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 768px) {
+  .hero-banner__heading {
+    font-size: clamp(38px, 10vw, 64px) !important;
+    line-height: 1 !important;
+    letter-spacing: -1px !important;
+  }
+
+  .hero-banner__inner {
+    padding-top: 36px !important;
+    padding-bottom: 36px !important;
+  }
+}
