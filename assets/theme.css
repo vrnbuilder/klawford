@@ -4458,17 +4458,25 @@ body,
 .cart-drawer__foot { position: relative; z-index: 2; }
 
 
-/* Klawford homepage hero: keep the full heading visible without oversized clipping. */
+/* Klawford homepage hero: keep the complete heading readable and within the banner. */
+.hero-banner__content {
+  max-width: 640px !important;
+}
+
 .hero-banner__heading {
-  font-size: clamp(48px, 7vw, 108px) !important;
-  line-height: 0.98 !important;
-  letter-spacing: -2px !important;
-  overflow-wrap: anywhere;
+  font-size: clamp(42px, 4.6vw, 68px) !important;
+  line-height: 1.02 !important;
+  letter-spacing: -1.5px !important;
+  overflow-wrap: normal;
 }
 
 @media (max-width: 768px) {
+  .hero-banner__content {
+    max-width: 100% !important;
+  }
+
   .hero-banner__heading {
-    font-size: clamp(38px, 10vw, 64px) !important;
+    font-size: clamp(38px, 10vw, 58px) !important;
     line-height: 1 !important;
     letter-spacing: -1px !important;
   }
